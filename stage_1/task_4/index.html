@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>task_4</title>
+    <style type="text/css">
+        html, body{
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #shape-gray{
+            width: 400px;
+            height: 200px;
+            background: #ccc;
+        }
+        #shape-gray .shape{
+            width: 50px;
+            height: 50px;
+            background: #fc0;
+        }
+        #shape-yellow-1{
+            border-radius: 0 0 100px;
+        }
+        #shape-yellow-2{
+            border-radius: 100px 0 0;
+        }
+        input[type=radio]{
+            display: none;
+        }
+        label{
+            float: right;
+            display: inline-block;
+            width: 90px;
+            height: 20px;
+            border-radius: 4px;
+            margin: 5px;
+            background: #3355d0;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px;
+            text-align: center;
+            box-shadow: 1px 1px 1px 0 #626262;
+            -webkit-box-shadow: 1px 1px 1px 0 #626262;
+            -moz-box-shadow: 1px 1px 1px 0 #626262;
+        }
+        label:hover{
+            background: #375fff;
+            box-shadow: 1px 1px 1px 1px #626262;
+            -webkit-box-shadow: 1px 1px 1px 1px #626262;
+            -moz-box-shadow: 1px 1px 1px 1px #626262;
+        }
+        #method-1:checked ~ label[for=method-1],#method-2:checked ~ label[for=method-2],#method-3:checked ~ label[for=method-3]{
+            background: #2d519e;
+            -webkit-box-shadow: 0 0 1px 1px #626262;
+            -moz-box-shadow: 0 0 1px 1px #626262;
+            box-shadow: 0 0 1px 1px #626262;
+        }
+        #method-1:checked ~ .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+        #method-1:checked ~ .container .main{
+            height: 100%;
+            width: 100%;
+        }
+        #method-1:checked ~ .container .main > div{
+            margin-top: -25%;
+            margin-left: -50%;
+            position: relative;
+        }
+        #method-1:checked ~ .container #shape-yellow-2{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        #method-2:checked ~ .container{
+            height: inherit;
+            width: inherit;
+            display: table;
+            position: absolute;
+            z-index: -1;
+        }
+        #method-2:checked ~ .container .main{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        #method-2:checked ~ .container .main > div{
+            margin: 0 auto;
+            position: relative;
+        }
+        #method-2:checked ~ .container #shape-yellow-2{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        #method-3:checked ~ .container{
+            height: inherit;
+            width: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: -1;
+        }
+        #method-3:checked ~ .container .main > div{
+            margin: 0 auto;
+            position: relative;
+        }
+        #method-3:checked ~ .container #shape-yellow-2{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="radio" name="method" id="method-1" checked="checked"/>
+<input type="radio" name="method" id="method-2"/>
+<input type="radio" name="method" id="method-3"/>
+<label for="method-1">Position</label>
+<label for="method-2">Table</label>
+<label for="method-3">Flex</label>
+<div class="container">
+    <div class="main">
+        <div class="shape" id="shape-gray">
+            <div class="shape" id="shape-yellow-1"></div>
+            <div class="shape" id="shape-yellow-2"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

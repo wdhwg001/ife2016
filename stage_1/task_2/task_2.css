@@ -1,0 +1,281 @@
+/* 全部基于task_1中页面，未添加任何额外元素。
+   基于Chrome for Windows的渲染结果进行了像素级调整，加入了许多繁琐的小像素修正，可能会影响阅读体验。
+   task_2的页面与task_1的页面稍有不同，因为任务要求只允许添加CSS，所以页面的差异部分只能用稍稍tricky的办法处理。
+
+   __重申，在以下代码中，你可能会遇到:__
+   * 繁琐的小像素调整
+   * 充满恶意的各种前后缀content
+   * 各种时代的排版倾向
+
+   兼容性：Modern
+
+   By 强迫症晚期的wdhwg001
+*/
+html{
+    background: #fff;
+}
+body{
+    width: 1280px; /* Just for rendering Pixel-Perfect screenshots.*/
+    margin: 0;
+    background: #dedede;
+    font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+    height: 100%;
+}
+header{
+    width: 100%;
+    height: 60px;
+    background: #333;
+    display: table;
+}
+header h1{
+    display: none;
+}
+header:before{
+    content: url('logo.png'); /* Self-made logo, maybe not perfect. */
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 40px;
+}
+nav{
+    float: right;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    margin-right: 20px;
+}
+nav li:before{
+    content: '\2022';
+    padding-right: 7px;
+    color: #000;
+    font-weight: bold; /*OCD*/
+}
+nav li{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    margin-right: 4px;
+}
+nav li a:link{
+    color: #fff;
+    text-decoration: none;
+}
+nav li a:visited{
+    color: #969696;
+    text-decoration: none;
+}
+article, aside{
+    margin: 20px;
+    padding: 20px 20px 18px;
+    border: 1px solid #cdcdcd;
+    background-color: #fff;
+    -webkit-box-shadow: 2px 2px 1px 0 #848484;
+    -moz-box-shadow: 2px 2px 1px 0 #848484;
+    box-shadow: 2px 2px 1px 0 #848484;
+}
+article h2{
+    font-size: 21px;
+    margin: 16px 0;
+    letter-spacing: 1px; /*OCD*/
+}
+article h3{
+    font-size: 16px;
+    color: #626262;
+    margin: 10px 0 7px; /*OCD*/
+}
+article address{
+    margin-bottom: 15px;
+}
+article address *{
+    font: 12px normal;
+    color: #626262;
+}
+article p{
+    text-indent: 30px;
+    line-height: 25px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 17px;
+}
+article ul{
+    list-style: none;
+    margin: 10px 10px 20px;
+    padding-left: 10px;
+}
+article li{
+    margin-bottom: 5px;
+}
+article figure{
+    border: 1px #cecece solid;
+    width: 100px;
+    height: 100px;
+    padding: 7px 10px 17px; /*OCD*/
+    text-align: center;
+    margin-bottom: -5px; /*OCD*/
+    margin-top: 20px;
+}
+article figcaption{
+    font-size: 12px;
+    margin: 0 0 9px;
+}
+article figure img{
+    width: inherit;
+}
+article figure:last-child{ /*OCD*/
+    margin-bottom: 17px;
+}
+article:nth-child(5) > span{
+    font-size: 15px;
+}
+article:nth-child(5) > span::after{ /*OCD*/
+    content: '，你们不用写html时候不需要加';
+}
+article table{
+    border-collapse: collapse;
+    border: 1px #cecece solid;
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 2px; /*OCD*/
+}
+article th, article td{ /*OCD*/
+    padding: 3px 6px;
+}
+article th{
+    color: #fff;
+    background: #333333;
+    text-align: left;
+    padding-bottom: 4px; /*OCD*/
+    letter-spacing: 1px; /*OCD*/
+}
+article tr:nth-child(2) td{ /*OCD*/
+    padding-bottom: 4px;
+}
+article tr:nth-child(4) td{ /*OCD*/
+    padding-bottom: 4px;
+}
+article tbody tr:last-child{
+    background: #cccccc;
+    font-weight: bold;
+}
+
+aside{
+    margin-top: 40px;
+    margin-right: 40px;
+}
+aside h2{
+    margin: 0;
+    font-size: 16px;
+    padding: 11px;
+    border-left: 3px #cdcdcd solid;
+    letter-spacing: 1px; /*OCD*/
+}
+aside h3{
+    display: none;
+}
+aside form{
+    text-align: right;
+    font-size: 12px;
+    margin-top: -5px;
+}
+/* 原本应该是统一对第一层label加inline-block，width,ta:r的。
+   但是由于不愿意改task_1的html，所以用了脏一些的实现。 */
+form p{
+    color: #9b9b9b;
+    width: 127px;
+    margin: 10px 56% 20px auto;
+    white-space: nowrap;
+    text-align: left;
+}
+form label{
+    letter-spacing: 1px;
+}
+form > label{
+    margin: 9px 56% 0 0;
+    font-size: 12px;
+    display: block;
+}
+form input[placeholder]{
+    text-indent: 3px;
+    width: 125px;
+    font-size: 12px;
+}
+form label:not([for]), form label[for=city]{
+    width: 167px;
+    text-align: left;
+    margin-left: auto;
+    white-space: nowrap;
+}
+form > label:before{ /* Add returns */
+    content: '';
+    display: block;
+}
+form > label[for]:after{ /* A sexy hack to kill the colon */
+    content: '\2588';
+    color: #fff;
+    margin-left: -143px;
+    position: absolute;
+    margin-top: 4px;
+}
+form label[for=city]:after{
+    margin-left: -64px;
+}
+form label label:first-of-type:before{ /* Another sexy hack to kill the colon */
+    content: '\2588';
+    color: #fff;
+    margin-left: -32px;
+    display: inline-block;
+    width: 32px;
+    text-align: left;
+}
+form label *:first-child{
+    margin-left: -4px;
+}
+form textarea{
+    vertical-align: text-top;
+    height: 95px;
+    width: 735px;
+}
+form label[for=introduction]{
+    width: 192px;
+    display: inline-block;
+    white-space: nowrap;
+}
+form label[for=introduction]:before{ /* Hack to kill the colon */
+    content: '\2588';
+    color: #fff;
+    margin-top: 0;
+    margin-left: 52px;
+    display: inline-block;
+    position: absolute;
+}
+form label[for=introduction]:after{
+    content: '';
+}
+form input[type=submit]{
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    border: 1px #c4cccf solid;
+    background: #3355d0;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    font-family: inherit;
+    letter-spacing: 1px; /*OCD*/
+}
+form input[type=submit]:hover{
+    background: #375fff;
+}
+form input[type=submit]:active{
+    background: #2d519e;
+}
+body:after{
+    content: '版权所有\00A9';
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    color: #fff;
+    background: #000;
+    height: 50px;
+    padding-top: 20px;
+}
