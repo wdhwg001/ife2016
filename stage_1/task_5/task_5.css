@@ -1,0 +1,40 @@
+/*
+  全部基于task_2的css。
+
+  兼容性：Modern
+
+  By 强迫症晚期的wdhwg001
+*/
+body{
+    width: initial;
+    width: 1280px; /* Just for rendering Pixel-Perfect screenshots.*/
+    position: relative;
+}
+article{
+    margin-right: 405px;
+}
+aside{
+    width: 323px;
+    height: 460px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    margin: 20px;
+}
+aside h2{
+    margin-bottom: 10px;
+}
+form > label, form p{
+    margin-right: 24%;
+    white-space: nowrap;
+}
+form textarea{
+    width: 195px;
+}
+article figure{
+    display: inline-block;
+    margin: 13px 6px 7px 10px;
+}
+article figure:last-child{
+    margin-bottom: 12px;
+}
