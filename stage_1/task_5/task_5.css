@@ -1,4 +1,13 @@
+/*
+  全部基于task_2的css。
+
+  兼容性：Modern
+
+  By 强迫症晚期的wdhwg001
+*/
 body{
+    width: initial;
+    width: 1280px; /* Just for rendering Pixel-Perfect screenshots.*/
     position: relative;
 }
 article{
