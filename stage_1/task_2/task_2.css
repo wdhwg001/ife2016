@@ -216,7 +216,7 @@ form > label[for]:after{ /* A sexy hack to kill the colon */
     margin-top: 4px;
 }
 form label[for=city]:after{
-    margin-left: -64px;
+    margin-left: -65px;
 }
 form label[for=city] select{
     margin-left: -3px;
