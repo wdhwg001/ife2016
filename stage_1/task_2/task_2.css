@@ -218,6 +218,9 @@ form > label[for]:after{ /* A sexy hack to kill the colon */
 form label[for=city]:after{
     margin-left: -64px;
 }
+form label[for=city] select{
+    margin-left: -3px;
+}
 form label label:first-of-type:before{ /* Another sexy hack to kill the colon */
     content: '\2588';
     color: #fff;
