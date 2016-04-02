@@ -18,11 +18,147 @@
         .icon-weibo { background-position: -3px -218px; width: 30px; height: 30px; }
         .icon-world { background-position: -36px -218px; width: 30px; height: 30px; }
         .icon-avatar { background-position: -69px -185px; width: 17px; height: 17px; }
+
+        body {
+            width: 1280px;
+            margin: 0;
+            padding: 0;
+            font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
+        }
+
+        .simHei{
+            font-size: 21px;
+            font-family: "STHeiti", "SimHei", "Microsoft JhengHei", sans-serif;
+        }
+
+        header {
+            width: 100%;
+            height: 56px;
+            overflow: hidden;
+        }
+
+        header h1 {
+            display: inline-block;
+            margin: 13px 60px;
+            /* OCD Detailing */
+            -webkit-font-smoothing: subpixel-antialiased;
+            -webkit-text-stroke: .3px #000;
+            font-weight: lighter;
+        }
+
+        header h1::before {
+            content: '';
+            display: inline-block;
+            overflow: hidden;
+            background: url('images/sprite.png') no-repeat 0 1px;
+            width: 32px;
+            height: 32px;
+            background-size: 32px;
+            vertical-align: -8px;
+            margin-right: 10px;
+            /* OCD Detailing */
+            image-rendering: -moz-crisp-edges;         /* Firefox */
+            image-rendering:   -o-crisp-edges;         /* Opera */
+            image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav ul {
+            margin: 0;
+        }
+
+        nav li {
+            list-style: none;
+            display: inline-block;
+            padding: 18px 25px 14px 20px;
+            color: #787b83;
+            font-size: 14px;
+        }
+
+        nav li:hover {
+            border-bottom: 5px #e74f4d solid;
+            /* OCD Detailing */
+            border-image: linear-gradient(to bottom, transparent, #e74f4d, #e74f4d, transparent) 50 0;
+            border-left: 0;
+            border-right: 0;
+            border-top: 0;
+        }
+
+        nav .login{
+            padding-left: 5px;
+            padding-right: 10px;
+            margin-right: 58px;
+            color: #e74f4d;
+        }
+
+        .login::before{
+            content: '';
+            display: inline-block;
+            overflow: hidden;
+            background: url('images/sprite.png') no-repeat -69px -185px;
+            width: 17px;
+            height: 17px;
+            vertical-align: text-bottom;
+        }
+
+        #section-1{
+            width: 100%;
+            height: 690px;
+            color: #fff;
+            background: url('images/s1_bg.png') no-repeat top center;
+            overflow: hidden;
+            position: relative;
+            z-index: -2;
+        }
+
+        #section-1 h2{
+            font-size: 60px;
+            margin: 230px auto auto 115px;
+            font-weight: lighter;
+            line-height: 1;
+        }
+
+        #section-1 p{
+            margin: 18px 124px;
+            font-size: 21px;
+            line-height: 1.5;
+        }
+
+        #section-1 [type=button] {
+            display: block;
+            margin: 64px 126px;
+            border: none;
+            width: 333px;
+            height: 64px;
+            background: #e74f4d;
+            font-size: 30px;
+            font-family: inherit;
+            color: #fff;
+            letter-spacing: 3px;
+        }
+
+        #section-1:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.26;
+            top: 0;
+            display: block;
+            z-index: -1;
+        }
+
     </style>
 </head>
 <body>
 <header>
-    <h1>新世界</h1>
+    <h1 class="simHei">新世界</h1>
     <nav>
         <ul>
             <li>首页</li>
@@ -30,7 +166,7 @@
             <li>项目介绍</li>
             <li>爱心社区</li>
             <li>关于我们</li>
-            <li>登录</li>
+            <li class="login">登录</li>
         </ul>
     </nav>
 </header>
