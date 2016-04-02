@@ -9,10 +9,6 @@
         { display: inline-block; background: url('images/sprite.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
 
         .icon-logo { background-position: -3px -0px; width: 91px; height: 92px; }
-        .icon-donut { background-position: -3px -95px; width: 42px; height: 42px; }
-        .icon-flag { background-position: -48px -95px; width: 42px; height: 42px; }
-        .icon-flower { background-position: -3px -140px; width: 42px; height: 42px; }
-        .icon-window { background-position: -48px -140px; width: 42px; height: 42px; }
         .icon-qq { background-position: -3px -185px; width: 30px; height: 30px; }
         .icon-twitter { background-position: -36px -185px; width: 30px; height: 30px; }
         .icon-weibo { background-position: -3px -218px; width: 30px; height: 30px; }
@@ -107,7 +103,6 @@
         }
 
         #section-1{
-            width: 100%;
             height: 690px;
             color: #fff;
             background: url('images/s1_bg.png') no-repeat top center;
@@ -152,6 +147,54 @@
             top: 0;
             display: block;
             z-index: -1;
+        }
+
+        #section-2 {
+            height: 250px;
+        }
+
+        #section-2 th{
+            width: 25%;
+            padding: 45px;
+        }
+
+        .donut::after,
+        .flag::after,
+        .flower::after,
+        .window::after {
+            content: '';
+            display: block;
+            margin: 0 auto;
+            background: url('images/sprite.png') no-repeat;
+            width: 42px;
+            height: 42px;
+        }
+
+        .donut::after {
+            background-position: -3px -95px;
+        }
+
+        .flag::after {
+            background-position: -48px -95px;
+        }
+
+        .flower::after {
+            background-position: -3px -140px;
+        }
+
+        .window::after {
+            background-position: -48px -140px;
+        }
+
+        #section-2 td {
+            text-align: center;
+            vertical-align: top;
+            padding: 0 80px;
+            color: #767777;
+            font-size: 14px;
+            /* OCD Detailing */
+            -webkit-font-smoothing: subpixel-antialiased;
+            text-shadow: 0 0 .0001px rgba(118, 119, 119, 0.5);
         }
 
     </style>
