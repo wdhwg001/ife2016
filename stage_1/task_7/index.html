@@ -14,6 +14,8 @@
         .icon-weibo { background-position: -3px -218px; width: 30px; height: 30px; }
         .icon-world { background-position: -36px -218px; width: 30px; height: 30px; }
         .icon-avatar { background-position: -69px -185px; width: 17px; height: 17px; }
+        .icon-arrowhead { background-position: -69px -205px; width: 15px; height: 15px; }
+        .icon-check { background-position: -69px -223px; width: 12px; height: 12px; }
 
         body {
             width: 1280px;
@@ -192,9 +194,14 @@
             padding: 0 80px;
             color: #767777;
             font-size: 14px;
+            border-right: 1.5px #999695 solid;
             /* OCD Detailing */
             -webkit-font-smoothing: subpixel-antialiased;
             text-shadow: 0 0 .0001px rgba(118, 119, 119, 0.5);
+        }
+
+        #section-2 td:last-of-type{
+            border: none;
         }
 
         #section-3{
@@ -217,6 +224,213 @@
             height: 92px;
             background: url('images/sprite.png') no-repeat -3px 0;
             margin: 0 auto 48px;
+        }
+
+        #section-4{
+            height: 340px;
+            background: url('images/s4_bg.png') no-repeat center top;
+            overflow: visible;
+            text-align: center;
+            padding-top: .1px;
+            font-size: 12px;
+            line-height: 1;
+            color: #fff;
+        }
+
+        #section-4 h3{
+            margin: 52px auto 10px;
+            font-size: 21px;
+            font-weight: lighter;
+        }
+
+        #section-4 hr{
+            width: 30px;
+            border: 1px #fff solid;
+            margin-bottom: 20px;
+        }
+
+        #section-4 form{
+            margin: 53px auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        #section-4 form .select{
+            display: inline-block;
+            margin: 0 14px;
+        }
+
+        #section-4 form [type=submit] {
+            width: 235px;
+            height: 37px;
+            border: none;
+            background: #be4e48;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 32px;
+            text-indent: 32px;
+            text-align: center;
+            font-family: inherit;
+        }
+
+        /* Simulate <Select> in a perfect and sexy way. */
+        .select{
+            position: relative;
+        }
+
+        /* Select触发器初始化 */
+        .select [type=text]{
+            border: none;
+            padding: 0;
+            background: none;
+            color: transparent;
+            font-size: 0;
+            display: block;
+        }
+
+        /* Placeholder */
+        .select .appearance::before{
+            content: '';
+            position: absolute;
+            color: #a8aaaa;
+            top: 12px;
+            left: 12px;
+        }
+
+        /* 初始化双击关闭用的遮罩 */
+        .select .double-click{
+            display: none;
+        }
+
+        /* 未点击时所有选项隐藏 */
+        .select .drop-down label {
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s, opacity 0.3s;
+        }
+
+        /* 选中后将内容上移至select框内 */
+        .select .appearance-switch:not(:focus) ~ .drop-down [type=radio]:checked + label{
+            position: absolute;
+            top: 5px;
+            left: 12px;
+            width: 80%;
+            visibility: visible;
+            opacity: 1;
+            pointer-events: none;
+            transition: none;
+            background: #fff;
+        }
+
+        /* 点击的瞬间为挪走的元素留出空位，防止点击事件被“躲开” */
+        .select .appearance-switch:not(:focus) ~ .drop-down [type=radio]:checked + label + [type=radio] + label{
+            padding-top: 25px; /* Exactly one option, same as label[height] */
+        }
+
+        /* 点下后所有选项显示 */
+        .select .appearance-switch:focus ~ .drop-down label{
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* 鼠标悬停效果 */
+        .select .appearance-switch:focus ~ .drop-down label:hover{
+            background: #be4e48;
+        }
+
+        /* 没选中的也预留对号位置 */
+        .select .drop-down [type=radio]:not(:checked) + label:not(:hover)::before{
+            content: '';
+            display: inline-block;
+            width: 31px;
+        }
+
+        /* 选中的在前面打对号 */
+        .select .appearance-switch:focus ~ .drop-down [type=radio]:checked + label::before,
+        .select .appearance-switch:focus ~ .drop-down label:hover::before
+        {
+            content: '';
+            background: url('images/sprite.png') -69px -223px no-repeat;
+            width: 15px;
+            height: 15px;
+            margin: auto 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* 二次点击select也可以关闭下拉列表 */
+        .select .appearance-switch:focus ~ .double-click{
+            display: block;
+            width: 235px;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            background-color: transparent;
+        }
+
+        /* 隐藏下拉列表中选项的checkbox/radio */
+        .select .drop-down [type=radio]{
+            display: none;
+        }
+
+        /* 显示向下箭头 */
+        .select .appearance::after {
+            content: '';
+            background: #be4e48 url('images/sprite.png') -67px -203px no-repeat;
+            background-blend-mode: normal;
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            text-align: right;
+            margin: 8px 96%;
+            transform: translateX(-100%);
+        }
+
+        /* Select外观 */
+        .select .appearance{
+            display: block;
+            width: 235px;
+            height: 35px;
+            background: #fff;
+            border: 1px #fff solid;
+        }
+
+        /* 选中时红色外框 */
+        .select .appearance-switch:focus ~ .appearance{
+            border: 1px #be4e48 solid;
+        }
+
+        /* 下拉框外观 */
+        .select .appearance-switch:focus ~ .drop-down{
+            border: 1px #be4e48 solid;
+        }
+
+        /* 下拉框背景色 */
+        .select .appearance-switch:focus ~ .drop-down [type=radio]:checked + label{
+            background-color: #a4a4a5;
+        }
+
+        /* 单个选项外观 */
+        .select .drop-down label {
+            height: 25px; /* Sync with margin-top */
+            background: #e3e3e4;
+            color: initial;
+            text-align: left;
+            width: 235px;
+            line-height: 25px;
+        }
+
+        #region .appearance::before{
+            content: '国家';
+        }
+
+        #state .appearance::before{
+            content: '省份';
+        }
+
+        #city .appearance::before{
+            content: '城市';
         }
     </style>
 </head>
@@ -269,29 +483,45 @@
     <section id="section-4">
         <h3>查找新世界城市活动信息</h3>
         <hr/>
-        <p>每个城市都<!--Typo: "的"->"都"-->有不同的活动信息，请自主查询您所要了解的城市</p>
+        <p>每个城市都<!--Typo: "的"->"都"-->有不同的活动信息，请自主查询您所需要了解的城市</p>
         <form action="" method="get">
-            <label>
-                <select name="region" id="region">
-                    <option value="China" selected="selected">中国</option>
-                </select>
-            </label>
-            <label>
-                <select name="state" id="state">
-                    <option value="" disabled="disabled" selected="selected">省份</option>
-                    <option value="Beijing">北京市</option>
-                    <option value="Tianjin">天津市</option>
-                    <option value="Hebei">河北省</option>
-                    <option value="Shaanxi">陕西省</option>
-                    <option value="InnerMongolia">内蒙古自治区</option>
-                    <option value="Liaoning">辽宁省</option>
-                </select>
-            </label>
-            <label>
-                <select name="city" id="city">
-                    <option value="" disabled="disabled" selected="selected">城市</option>
-                </select>
-            </label>
+            <div class="select" id="region">
+                <input type="text" class="appearance-switch" id="region-select"/>
+                <label class="appearance" for="region-select"></label>
+                <div class="double-click"></div>
+                <div class="drop-down">
+                    <input type="radio" name="region" value="China" id="region-China"/>
+                    <label for="region-China">中国</label>
+                </div>
+            </div>
+            <div class="select" id="state">
+                <input type="text" class="appearance-switch" id="state-select"/>
+                <label class="appearance" for="state-select"></label>
+                <div class="double-click"></div>
+                <div class="drop-down">
+                    <input type="radio" name="state" value="Beijing" id="state-Beijing"/>
+                    <label for="state-Beijing">北京市</label>
+                    <input type="radio" name="state" value="Tianjin" id="state-Tianjin"/>
+                    <label for="state-Tianjin">天津市</label>
+                    <input type="radio" name="state" value="Hebei" id="state-Hebei"/>
+                    <label for="state-Hebei">河北省</label>
+                    <input type="radio" name="state" value="Shaanxi" id="state-Shaanxi"/>
+                    <label for="state-Shaanxi">陕西省</label>
+                    <input type="radio" name="state" value="InnerMongolia" id="state-InnerMongolia"/>
+                    <label for="state-InnerMongolia">内蒙古自治区</label>
+                    <input type="radio" name="state" value="Liaoning" id="state-Liaoning"/>
+                    <label for="state-Liaoning">辽宁省</label>
+                </div>
+            </div>
+            <div class="select" id="city">
+                <input type="text" class="appearance-switch" id="city-select"/>
+                <label class="appearance" for="city-select"></label>
+                <div class="double-click"></div>
+                <div class="drop-down">
+                    <input type="radio" name="city" value="Haidian" id="city-Haidian"/>
+                    <label for="city-Haidian">海淀区</label>
+                </div>
+            </div>
             <input type="submit" value="搜索"/>
         </form>
     </section>
