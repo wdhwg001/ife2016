@@ -258,6 +258,7 @@
         #section-4 form .select{
             display: inline-block;
             margin: 0 14px;
+            color: #323333;
         }
 
         #section-4 form [type=submit] {
@@ -315,12 +316,12 @@
             position: absolute;
             top: 5px;
             left: 12px;
-            width: 80%;
+            width: 80% !important;
             visibility: visible;
             opacity: 1;
             pointer-events: none;
             transition: none;
-            background: #fff;
+            background: #fff !important;
         }
 
         /* 点击的瞬间为挪走的元素留出空位，防止点击事件被“躲开” */
@@ -406,6 +407,8 @@
         /* 下拉框外观 */
         #section-4 .select .appearance-switch:focus ~ .drop-down{
             border: 1px #be4e48 solid;
+            border-top: none;
+            color: inherit;
         }
 
         /* 下拉框背景色 */
@@ -417,7 +420,7 @@
         #section-4 .select .drop-down label {
             height: 25px; /* Sync with margin-top */
             background: #e3e3e4;
-            color: initial;
+            color: inherit;
             text-align: left;
             width: 235px;
             line-height: 25px;
