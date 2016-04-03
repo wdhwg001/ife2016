@@ -23,7 +23,6 @@
         }
 
         .simHei{
-            font-size: 21px;
             font-family: "STHeiti", "SimHei", "Microsoft JhengHei", sans-serif;
         }
 
@@ -34,6 +33,7 @@
         }
 
         header h1 {
+            font-size: 21px;
             display: inline-block;
             margin: 13px 60px;
             /* OCD Detailing */
@@ -197,6 +197,27 @@
             text-shadow: 0 0 .0001px rgba(118, 119, 119, 0.5);
         }
 
+        #section-3{
+            height: 360px;
+            background: #ededec;
+            display: flex;
+        }
+
+        #section-3 h2{
+            font-size: 54px;
+            color: rgba(50, 51, 51, 0.5);
+            margin: auto;
+            font-weight: lighter;
+        }
+
+        #section-3 h2:before{
+            content: '';
+            display: block;
+            width: 92px;
+            height: 92px;
+            background: url('images/sprite.png') no-repeat -3px 0;
+            margin: 0 auto 48px;
+        }
     </style>
 </head>
 <body>
@@ -243,7 +264,7 @@
         </table>
     </section>
     <section id="section-3">
-        <h2>关于新世界，你不知道的还有什么？</h2>
+        <h2 class="simHei">关于新世界，你不知道的还有什么？</h2>
     </section>
     <section id="section-4">
         <h3>查找新世界城市活动信息</h3>
