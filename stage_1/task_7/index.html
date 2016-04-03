@@ -272,6 +272,7 @@
             text-indent: 32px;
             text-align: center;
             font-family: inherit;
+            margin: 0 14px;
         }
 
         /* Simulate <Select> in a perfect and sexy way. */
@@ -308,7 +309,7 @@
             display: block;
             visibility: hidden;
             opacity: 0;
-            transition: visibility 0.3s, opacity 0.3s;
+            transition: visibility 0.5s, opacity 0.3s;
         }
 
         /* 选中后将内容上移至select框内 */
@@ -333,11 +334,16 @@
         .select .appearance-switch:focus ~ .drop-down label{
             visibility: visible;
             opacity: 1;
+            color: inherit;
+        }
+
+        .select .appearance-switch:not(:focus) ~ .drop-down [type=radio]:not(:checked) + label{
+            color: transparent !important;
         }
 
         /* 鼠标悬停效果 */
         .select .appearance-switch:focus ~ .drop-down label:hover{
-            background: #be4e48;
+            background: #be4e48 !important;
         }
 
         /* 没选中的也预留对号位置 */
@@ -409,9 +415,11 @@
             border: 1px #be4e48 solid;
             border-top: none;
             color: inherit;
+            padding-bottom: 15px;
+            background: #e3e3e4;
         }
 
-        /* 下拉框背景色 */
+        /* 选中项背景色 */
         #section-4 .select .appearance-switch:focus ~ .drop-down [type=radio]:checked + label{
             background-color: #a4a4a5;
         }
@@ -419,7 +427,7 @@
         /* 单个选项外观 */
         #section-4 .select .drop-down label {
             height: 25px; /* Sync with margin-top */
-            background: #e3e3e4;
+            background: transparent;
             color: inherit;
             text-align: left;
             width: 235px;
@@ -436,6 +444,18 @@
 
         #section-4 #city .appearance::before{
             content: '城市';
+        }
+
+        #section-1:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.26;
+            top: 0;
+            display: block;
+            z-index: -1;
         }
 
         #section-5 {
