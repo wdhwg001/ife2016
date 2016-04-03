@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task_7</title>
+    <style type="text/css">
+        .icon-logo, .icon-donut, .icon-window, .icon-flag, .icon-flower,
+        .icon-twitter, .icon-weibo, .icon-qq, .icon-world, .icon-avatar
+        { display: inline-block; background: url('images/sprite.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+
+        .icon-logo { background-position: -3px -0px; width: 91px; height: 92px; }
+        .icon-qq { background-position: -3px -185px; width: 30px; height: 30px; }
+        .icon-twitter { background-position: -36px -185px; width: 30px; height: 30px; }
+        .icon-weibo { background-position: -3px -218px; width: 30px; height: 30px; }
+        .icon-world { background-position: -36px -218px; width: 30px; height: 30px; }
+        .icon-avatar { background-position: -69px -185px; width: 17px; height: 17px; }
+        .icon-arrowhead { background-position: -69px -205px; width: 15px; height: 15px; }
+        .icon-check { background-position: -69px -223px; width: 12px; height: 12px; }
+
+        body {
+            width: 1280px;
+            margin: 0;
+            padding: 0;
+            font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
+        }
+
+        .simHei{
+            font-family: "STHeiti", "SimHei", "Microsoft JhengHei", sans-serif;
+        }
+
+        header {
+            width: 100%;
+            height: 56px;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 21px;
+            display: inline-block;
+            margin: 13px 60px;
+            /* OCD Detailing */
+            -webkit-font-smoothing: subpixel-antialiased;
+            -webkit-text-stroke: .3px #000;
+            font-weight: lighter;
+        }
+
+        header h1::before {
+            content: '';
+            display: inline-block;
+            overflow: hidden;
+            background: url('images/sprite.png') no-repeat 0 1px;
+            width: 32px;
+            height: 32px;
+            background-size: 32px;
+            vertical-align: -8px;
+            margin-right: 10px;
+            /* OCD Detailing */
+            image-rendering: -moz-crisp-edges;         /* Firefox */
+            image-rendering:   -o-crisp-edges;         /* Opera */
+            image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav ul {
+            margin: 0;
+        }
+
+        nav li {
+            list-style: none;
+            display: inline-block;
+            padding: 18px 25px 14px 20px;
+            color: #787b83;
+            font-size: 14px;
+        }
+
+        nav li:hover {
+            border-bottom: 5px #e74f4d solid;
+            /* OCD Detailing */
+            border-image: linear-gradient(to bottom, transparent, #e74f4d, #e74f4d, transparent) 50 0;
+            border-left: 0;
+            border-right: 0;
+            border-top: 0;
+        }
+
+        nav .login{
+            padding-left: 5px;
+            padding-right: 10px;
+            margin-right: 58px;
+            color: #e74f4d;
+        }
+
+        .login::before{
+            content: '';
+            display: inline-block;
+            overflow: hidden;
+            background: url('images/sprite.png') no-repeat -69px -185px;
+            width: 17px;
+            height: 17px;
+            vertical-align: text-bottom;
+        }
+
+        #section-1{
+            height: 690px;
+            color: #fff;
+            background: url('images/s1_bg.png') no-repeat top center;
+            overflow: hidden;
+            position: relative;
+            z-index: -2;
+        }
+
+        #section-1 h2{
+            font-size: 60px;
+            margin: 230px auto auto 115px;
+            font-weight: lighter;
+            line-height: 1;
+        }
+
+        #section-1 p{
+            margin: 18px 124px;
+            font-size: 21px;
+            line-height: 1.5;
+        }
+
+        #section-1 [type=button] {
+            display: block;
+            margin: 64px 126px;
+            border: none;
+            width: 333px;
+            height: 64px;
+            background: #e74f4d;
+            font-size: 30px;
+            font-family: inherit;
+            color: #fff;
+            letter-spacing: 3px;
+        }
+
+        #section-1:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.26;
+            top: 0;
+            display: block;
+            z-index: -1;
+        }
+
+        #section-2 {
+            height: 250px;
+        }
+
+        #section-2 th{
+            width: 25%;
+            padding: 45px;
+        }
+
+        .donut::after,
+        .flag::after,
+        .flower::after,
+        .window::after {
+            content: '';
+            display: block;
+            margin: 0 auto;
+            background: url('images/sprite.png') no-repeat;
+            width: 42px;
+            height: 42px;
+        }
+
+        .donut::after {
+            background-position: -3px -95px;
+        }
+
+        .flag::after {
+            background-position: -48px -95px;
+        }
+
+        .flower::after {
+            background-position: -3px -140px;
+        }
+
+        .window::after {
+            background-position: -48px -140px;
+        }
+
+        #section-2 td {
+            text-align: center;
+            vertical-align: top;
+            padding: 0 80px;
+            color: #767777;
+            font-size: 14px;
+            border-right: 1.5px #999695 solid;
+            /* OCD Detailing */
+            -webkit-font-smoothing: subpixel-antialiased;
+            text-shadow: 0 0 .0001px rgba(118, 119, 119, 0.5);
+        }
+
+        #section-2 td:last-of-type{
+            border: none;
+        }
+
+        #section-3{
+            height: 360px;
+            background: #ededec;
+            display: flex;
+        }
+
+        #section-3 h2{
+            font-size: 54px;
+            color: rgba(50, 51, 51, 0.5);
+            margin: auto;
+            font-weight: lighter;
+        }
+
+        #section-3 h2:before{
+            content: '';
+            display: block;
+            width: 92px;
+            height: 92px;
+            background: url('images/sprite.png') no-repeat -3px 0;
+            margin: 0 auto 48px;
+        }
+
+        #section-4{
+            height: 340px;
+            background: url('images/s4_bg.png') no-repeat center top;
+            overflow: visible;
+            text-align: center;
+            padding-top: .1px;
+            font-size: 12px;
+            line-height: 1;
+            color: #fff;
+        }
+
+        #section-4 h3{
+            margin: 52px auto 10px;
+            font-size: 21px;
+            font-weight: lighter;
+        }
+
+        #section-4 hr{
+            width: 30px;
+            border: 1px #fff solid;
+            margin-bottom: 20px;
+        }
+
+        #section-4 form{
+            margin: 53px auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        #section-4 form .select{
+            display: inline-block;
+            margin: 0 14px;
+            color: #323333;
+        }
+
+        #section-4 form [type=submit] {
+            width: 235px;
+            height: 37px;
+            border: none;
+            background: #be4e48;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 32px;
+            text-indent: 32px;
+            text-align: center;
+            font-family: inherit;
+        }
+
+        /* Simulate <Select> in a perfect and sexy way. */
+        .select{
+            position: relative;
+        }
+
+        /* Select触发器初始化 */
+        .select [type=text]{
+            border: none;
+            padding: 0;
+            background: none;
+            color: transparent;
+            font-size: 0;
+            display: block;
+        }
+
+        /* Placeholder */
+        .select .appearance::before{
+            content: '';
+            position: absolute;
+            color: #a8aaaa;
+            top: 12px;
+            left: 12px;
+        }
+
+        /* 初始化双击关闭用的遮罩 */
+        .select .double-click{
+            display: none;
+        }
+
+        /* 未点击时所有选项隐藏 */
+        .select .drop-down label {
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s, opacity 0.3s;
+        }
+
+        /* 选中后将内容上移至select框内 */
+        .select .appearance-switch:not(:focus) ~ .drop-down [type=radio]:checked + label{
+            position: absolute;
+            top: 5px;
+            left: 12px;
+            width: 80% !important;
+            visibility: visible;
+            opacity: 1;
+            pointer-events: none;
+            transition: none;
+            background: #fff !important;
+        }
+
+        /* 点击的瞬间为挪走的元素留出空位，防止点击事件被“躲开” */
+        .select .appearance-switch:not(:focus) ~ .drop-down [type=radio]:checked + label + [type=radio] + label{
+            padding-top: 25px; /* Exactly one option, same as label[height] */
+        }
+
+        /* 点下后所有选项显示 */
+        .select .appearance-switch:focus ~ .drop-down label{
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* 鼠标悬停效果 */
+        .select .appearance-switch:focus ~ .drop-down label:hover{
+            background: #be4e48;
+        }
+
+        /* 没选中的也预留对号位置 */
+        .select .drop-down [type=radio]:not(:checked) + label:not(:hover)::before{
+            content: '';
+            display: inline-block;
+            width: 31px;
+        }
+
+        /* 选中的在前面打对号 */
+        .select .appearance-switch:focus ~ .drop-down [type=radio]:checked + label::before,
+        .select .appearance-switch:focus ~ .drop-down label:hover::before
+        {
+            content: '';
+            background: url('images/sprite.png') -69px -223px no-repeat;
+            width: 15px;
+            height: 15px;
+            margin: auto 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* 二次点击select也可以关闭下拉列表 */
+        .select .appearance-switch:focus ~ .double-click{
+            display: block;
+            width: 235px;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            background-color: transparent;
+        }
+
+        /* 隐藏下拉列表中选项的checkbox/radio */
+        .select .drop-down [type=radio]{
+            display: none;
+        }
+
+        /* Select功能区完毕 */
+
+        /* 显示向下箭头 */
+        #section-4 .select .appearance::after {
+            content: '';
+            background: #be4e48 url('images/sprite.png') -67px -203px no-repeat;
+            background-blend-mode: normal;
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            text-align: right;
+            margin: 8px 96%;
+            transform: translateX(-100%);
+        }
+
+        /* Select外观 */
+        #section-4 .select .appearance{
+            display: block;
+            width: 235px;
+            height: 35px;
+            background: #fff;
+            border: 1px #fff solid;
+        }
+
+        /* 选中时红色外框 */
+        #section-4 .select .appearance-switch:focus ~ .appearance{
+            border: 1px #be4e48 solid;
+        }
+
+        /* 下拉框外观 */
+        #section-4 .select .appearance-switch:focus ~ .drop-down{
+            border: 1px #be4e48 solid;
+            border-top: none;
+            color: inherit;
+        }
+
+        /* 下拉框背景色 */
+        #section-4 .select .appearance-switch:focus ~ .drop-down [type=radio]:checked + label{
+            background-color: #a4a4a5;
+        }
+
+        /* 单个选项外观 */
+        #section-4 .select .drop-down label {
+            height: 25px; /* Sync with margin-top */
+            background: #e3e3e4;
+            color: inherit;
+            text-align: left;
+            width: 235px;
+            line-height: 25px;
+        }
+
+        #section-4 #region .appearance::before{
+            content: '国家';
+        }
+
+        #section-4 #state .appearance::before{
+            content: '省份';
+        }
+
+        #section-4 #city .appearance::before{
+            content: '城市';
+        }
+
+        #section-5 {
+            height: 605px;
+            background: #f7f7f7;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: #786f6c;
+            line-height: 1;
+        }
+
+        #section-5 figure{
+            width: 220px;
+            height: 390px;
+            display: inline-block;
+            margin: 0 18px;
+        }
+
+        #section-5 figcaption h3{
+            font-size: 15px;
+            font-weight: lighter;
+            color: #323333;
+            margin: 12px;
+        }
+
+        #section-5 .image{
+            background: #fff center no-repeat;
+            height: 340px;
+            border: 1px #cdc9c8 solid;
+        }
+
+        #section-5 #item-1 .image{
+            background-image: url('images/s5_item1.png');
+        }
+
+        #section-5 #item-2 .image{
+            background-image: url('images/s5_item2.png');
+        }
+
+        #section-5 #item-3 .image{
+            background-image: url('images/s5_item3.png');
+        }
+
+        #section-5 #item-4 .image{
+            background-image: url('images/s5_item4.png');
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1 class="simHei">新世界</h1>
+    <nav>
+        <ul>
+            <li>首页</li>
+            <li>最新活动</li>
+            <li>项目介绍</li>
+            <li>爱心社区</li>
+            <li>关于我们</li>
+            <li class="login">登录</li>
+        </ul>
+    </nav>
+</header>
+<article>
+    <section id="section-1">
+        <h2>Time of new life</h2>
+        <p>
+            新时代，年轻的人们让我们一起<br/>
+            体验新生活，享受新生活
+        </p>
+        <input type="button" value="开始体验"/>
+    </section>
+    <section id="section-2">
+        <table>
+            <thead>
+            <tr>
+                <th class="donut"></th>
+                <th class="flag"></th>
+                <th class="flower"></th>
+                <th class="window"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>打造全新世界观，让你更爱你的生活</td>
+                <td>丰富多彩的公益活动，发挥新世界的主人公意识</td>
+                <td>时尚的新理念，超前体验未知的生活</td>
+                <td>完善的培养机制，培养你全新的世界观</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="section-3">
+        <h2 class="simHei">关于新世界，你不知道的还有什么？</h2>
+    </section>
+    <section id="section-4">
+        <h3>查找新世界城市活动信息</h3>
+        <hr/>
+        <p>每个城市都<!--Typo: "的"->"都"-->有不同的活动信息，请自主查询您所需要了解的城市</p>
+        <form action="" method="get">
+            <div class="select" id="region">
+                <input type="text" class="appearance-switch" id="region-select"/>
+                <label class="appearance" for="region-select"></label>
+                <div class="double-click"></div>
+                <div class="drop-down">
+                    <input type="radio" name="region" value="China" id="region-China"/>
+                    <label for="region-China">中国</label>
+                </div>
+            </div>
+            <div class="select" id="state">
+                <input type="text" class="appearance-switch" id="state-select"/>
+                <label class="appearance" for="state-select"></label>
+                <div class="double-click"></div>
+                <div class="drop-down">
+                    <input type="radio" name="state" value="Beijing" id="state-Beijing"/>
+                    <label for="state-Beijing">北京市</label>
+                    <input type="radio" name="state" value="Tianjin" id="state-Tianjin"/>
+                    <label for="state-Tianjin">天津市</label>
+                    <input type="radio" name="state" value="Hebei" id="state-Hebei"/>
+                    <label for="state-Hebei">河北省</label>
+                    <input type="radio" name="state" value="Shaanxi" id="state-Shaanxi"/>
+                    <label for="state-Shaanxi">陕西省</label>
+                    <input type="radio" name="state" value="InnerMongolia" id="state-InnerMongolia"/>
+                    <label for="state-InnerMongolia">内蒙古自治区</label>
+                    <input type="radio" name="state" value="Liaoning" id="state-Liaoning"/>
+                    <label for="state-Liaoning">辽宁省</label>
+                </div>
+            </div>
+            <div class="select" id="city">
+                <input type="text" class="appearance-switch" id="city-select"/>
+                <label class="appearance" for="city-select"></label>
+                <div class="double-click"></div>
+                <div class="drop-down">
+                    <input type="radio" name="city" value="Haidian" id="city-Haidian"/>
+                    <label for="city-Haidian">海淀区</label>
+                </div>
+            </div>
+            <input type="submit" value="搜索"/>
+        </form>
+    </section>
+    <section id="section-5">
+        <figure id="item-1">
+            <div class="image"></div>
+            <figcaption>
+                <h3>北京活动</h3>
+                新社区大联盟
+            </figcaption>
+        </figure>
+        <figure id="item-2">
+            <div class="image"></div>
+            <figcaption>
+                <h3>上海活动</h3>
+                夜上海新景观探索
+            </figcaption>
+        </figure>
+        <figure id="item-3">
+            <div class="image"></div>
+            <figcaption>
+                <h3>深圳活动</h3>
+                全新海岸线观点站
+            </figcaption>
+        </figure>
+        <figure id="item-4">
+            <div class="image"></div>
+            <figcaption>
+                <h3>香港活动</h3>
+                奢侈消费大派送
+            </figcaption>
+        </figure>
+    </section>
+    <section id="section-6">
+        <div class="left">
+            <abbr title="新世界">TIME</abbr>
+            <address>
+                @新世界 - 北京<br/>
+                <time>2016.04.01</time>
+            </address>
+        </div>
+        <div class="right">
+            <div class="slider" id="slider-page-1">
+                <h3>新世界<var>01</var></h3>
+                <p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+                <input type="button" value="更多详情"/>
+            </div>
+            <div class="slider" id="slider-page-2">
+                <h3>新世界<var>02</var></h3>
+                <p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+                <input type="button" value="更多详情"/>
+            </div>
+            <div class="slider" id="slider-page-3">
+                <h3>新世界<var>03</var></h3>
+                <p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+                <input type="button" value="更多详情"/>
+            </div>
+            <input type="radio" name="slider-nav" id="slider-nav-1"/>
+            <input type="radio" name="slider-nav" id="slider-nav-2"/>
+            <input type="radio" name="slider-nav" id="slider-nav-3"/>
+        </div>
+    </section>
+    <section id="section-7">
+        <div class="left">
+            <h3>
+                新时代<br/>
+                关于爱生活的我们
+            </h3>
+            <hr/>
+            <input type="button" value="查看更多"/>
+        </div>
+        <div class="middle">
+            <h3>
+                新时代<br/>
+                关于爱生活的我们
+            </h3>
+            <hr/>
+            <input type="button" value="查看更多"/>
+        </div>
+        <div class="right"></div>
+    </section>
+    <section id="section-8">
+        <h3>成为我们的志愿者</h3>
+        <hr/>
+        <p>
+            新世界的大家庭需要每一个爱生活的人加入，如果你够年轻，有梦想，有激情<br/>
+            那就不要犹豫，快来加入我们，成为改变所有人生活的人
+        </p>
+    </section>
+    <section id="section-9">
+        <form action="" method="post">
+            <div id="form-eula">
+                <div class="eula">
+                    <h4>新世界志愿者协议</h4>
+                    <p>加入新世界志愿者的人员必须遵守中华人民共<!--Typo: "共"->""-->和国的相关法律法规，并且本着平等自愿的原则 ……</p>
+                    <label for="more-1"></label>
+                    <input type="checkbox" name="more" id="more-1"/>
+                </div>
+                <div class="eula">
+                    <h4>新世界志愿者权利</h4>
+                    <p>新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在市<!--Typo: "四"->"市"-->新世界活动的优先参与资格</p>
+                    <label for="more-2"></label>
+                    <input type="checkbox" name="more" id="more-2"/>
+                </div>
+                <div class="eula">
+                    <h4>更多条款</h4>
+                    <label for="more-3"></label>
+                    <input type="checkbox" name="more" id="more-3"/>
+                </div>
+            </div>
+        </form>
+    </section>
+    <section id="section-10">
+        <h3>联系我们</h3>
+        <p>
+            为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯<br/>
+            也可以通过以下任何方式关注我们动态
+        </p>
+        <form action="" method="post">
+            <input type="text" name="email" id="email" placeholder="someone@email.com"/>
+            <input type="submit" value="提交"/>
+        </form>
+        <a href="" class="icon-qq"></a>
+        <a href="" class="icon-weibo"></a>
+        <a href="" class="icon-twitter"></a>
+        <a href="" class="icon-world"></a>
+    </section>
+</article>
+<footer>
+    <address>@2016新世界</address>
+    <a href="">Back to top</a>
+</footer>
+</body>
+</html>
