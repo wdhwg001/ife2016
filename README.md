@@ -16,4 +16,4 @@ Task_4 **定位和居中问题**: [Link](stage_1/task_4/index.html)
 
 Task_5 **零基础HTML及CSS编码（二）**: [Link](stage_1/task_5/index.html)
 
-Task_7 **实现常见的技术产品官网的页面架构及样式布局**: [Link](stage_1/task_7/index.html)
+Task_7 **实现常见的技术产品官网的页面架构及样式布局** _-暂未完成-_: [Link](stage_1/task_7/index.html)
