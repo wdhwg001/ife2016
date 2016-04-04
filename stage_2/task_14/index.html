@@ -38,7 +38,7 @@
         }).sort(function(a, b){
             return b[1]-a[1];
         }).forEach(function(cityAqi, index){
-            li += '<li>第' + zhNum[index+1] + '名：' + cityAqi[0] + '，' + cityAqi[1] + '</li>';
+            li += '<li>第' + zhNum[index + 1] + '名：' + cityAqi[0] + '，' + cityAqi[1] + '</li>';
         });
         document.getElementById('aqi-list').innerHTML = li;
         /*
