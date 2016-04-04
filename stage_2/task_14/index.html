@@ -31,16 +31,15 @@
          遍历读取aqiData中各个城市的数据
          将空气质量指数大于60的城市显示到aqi-list的列表中
          */
-        var highAqiCities = aqiData.filter(function(cityAqi){
+        var li = '',
+                zhNum = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+        aqiData.filter(function(cityAqi){
             return (cityAqi[1] > 60);
         }).sort(function(a, b){
             return b[1]-a[1];
+        }).forEach(function(cityAqi, index){
+            li += '<li>第' + zhNum[index+1] + '名：' + cityAqi[0] + '，' + cityAqi[1] + '</li>';
         });
-        var li = '',
-                zhNum = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
-        for(var i = 0, _len = highAqiCities.length; i < _len; i++){
-            li += '<li>第' + zhNum[i+1] + '名：' + highAqiCities[i][0] + '，' + highAqiCities[i][1] + '</li>';
-        }
         document.getElementById('aqi-list').innerHTML = li;
         /*
         * Test Cases:
