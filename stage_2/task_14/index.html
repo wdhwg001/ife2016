@@ -36,7 +36,7 @@
         aqiData.filter(function(cityAqi){
             return (cityAqi[1] > 60);
         }).sort(function(a, b){
-            return b[1]-a[1];
+            return b[1] - a[1];
         }).forEach(function(cityAqi, index){
             li += '<li>第' + zhNum[index + 1] + '名：' + cityAqi[0] + '，' + cityAqi[1] + '</li>';
         });
