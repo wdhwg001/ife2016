@@ -504,6 +504,7 @@
             color: #323333;
             margin: 12px;
             white-space: nowrap;
+            text-shadow: 0 0 .0001px rgba(50, 51, 51, 0.5);
         }
 
         #section-5 .image{
@@ -610,6 +611,61 @@
             font-size: 21px;
             letter-spacing: 30px;
             text-indent: 15px;
+        }
+
+        #section-6 {
+            height: 565px;
+            white-space: nowrap;
+        }
+
+        #section-6 [type=radio]{
+            display: none;
+        }
+
+        #section-6 > div{
+            display: inline-block;
+            white-space: normal;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        #section-6 .left{
+            width: 67%;
+            background: #ededec url('images/s6_bg.png') center no-repeat;
+            color: #fff;
+        }
+
+        #section-6 .right{
+            width: 33%;
+            white-space: nowrap;
+        }
+
+        #section-6 .left abbr{
+            display: block;
+            text-align: center;
+            margin: 128px auto 11px;
+            font-size: 158px;
+            line-height: 1;
+        }
+
+        #section-6 .left abbr:before{
+            content: attr(title);
+            display: block;
+            font-size: 49px;
+            margin-bottom: -10px;
+        }
+
+        #section-6 .left address{
+            font-size: 22px;
+            font-style: normal;
+            line-height: 2;
+            text-align: center;
+        }
+
+        #section-6 .right .slider{
+            display: inline-block;
+            width: 100%;
+            white-space: normal;
         }
     </style>
 </head>
@@ -735,6 +791,9 @@
         </figure>
     </section>
     <section id="section-6">
+        <input type="radio" name="slider-nav" id="slider-nav-1"/>
+        <input type="radio" name="slider-nav" id="slider-nav-2"/>
+        <input type="radio" name="slider-nav" id="slider-nav-3"/>
         <div class="left">
             <abbr title="新世界">TIME</abbr>
             <address>
@@ -758,9 +817,9 @@
                 <p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
                 <input type="button" value="更多详情"/>
             </div>
-            <input type="radio" name="slider-nav" id="slider-nav-1"/>
-            <input type="radio" name="slider-nav" id="slider-nav-2"/>
-            <input type="radio" name="slider-nav" id="slider-nav-3"/>
+            <label for="slider-nav-1"></label>
+            <label for="slider-nav-2"></label>
+            <label for="slider-nav-3"></label>
         </div>
     </section>
     <section id="section-7">
