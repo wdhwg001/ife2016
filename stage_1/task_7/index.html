@@ -494,17 +494,23 @@
             margin: 0 18px;
         }
 
+        #section-5 figcaption{
+            transition: opacity 1s, transform 0s;
+        }
+
         #section-5 figcaption h3{
             font-size: 15px;
             font-weight: lighter;
             color: #323333;
             margin: 12px;
+            white-space: nowrap;
         }
 
         #section-5 .image{
             background: #fff center no-repeat;
             height: 340px;
             border: 1px #cdc9c8 solid;
+            transition: transform 1s;
         }
 
         #section-5 #item-1 .image{
@@ -523,8 +529,87 @@
             background-image: url('images/s5_item4.png');
         }
 
-        @keyframes section-5-hover {
-            /**/
+        @keyframes section-5-hover-image {
+            from{
+                transform: translate3d(0, 0, 0);
+            }
+            75%{
+                transform: translate3d(0, 15%, 0);
+            }
+            to{
+                transform: translate3d(0, 15%, 0);
+            }
+        }
+
+        @keyframes section-5-hover-text {
+            0%{
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+            30%{
+                opacity: 0;
+                transform: translate3d(0, 0, 0);
+            }
+            40%{
+                opacity: 0;
+                transform: translate3d(0, -350px, 0);
+            }
+            100%{
+                opacity: 1;
+                transform: translate3d(0, -350px, 0);
+            }
+        }
+        
+        @keyframes section-5-hover-title {
+            0%{
+                margin: 12px;
+                font-size: 15px;
+                text-indent: 0;
+                letter-spacing: 0;
+            }
+            30%{
+                margin: 12px;
+                font-size: 15px;
+                text-indent: 0;
+                letter-spacing: 0;
+            }
+            35%{
+                margin: 8px;
+                font-size: 21px;
+                text-indent: 0;
+                letter-spacing: 0;
+            }
+            75%{
+                margin: 8px;
+                font-size: 21px;
+                letter-spacing: 30px;
+                text-indent: 15px;
+            }
+            100%{
+                margin: 8px;
+                font-size: 21px;
+                letter-spacing: 30px;
+                text-indent: 15px;
+            }
+        }
+
+        #section-5 figure:hover .image{
+            animation: section-5-hover-image 1.5s ease;
+            transform: translate3d(0, 15%, 0);
+        }
+
+        #section-5 figure:hover figcaption{
+            animation: section-5-hover-text 1.5s ease;
+            opacity: 1;
+            transform: translate3d(0, -350px, 0);
+        }
+
+        #section-5 figure:hover h3{
+            animation: section-5-hover-title 1.5s ease;
+            margin: 8px;
+            font-size: 21px;
+            letter-spacing: 30px;
+            text-indent: 15px;
         }
     </style>
 </head>
