@@ -38,10 +38,10 @@
             font-size: 21px;
             display: inline-block;
             margin: 13px 60px;
-            color: #393a3a;
+            color: #3a3a3a;
             /* OCD Detailing */
             -webkit-font-smoothing: subpixel-antialiased;
-            text-shadow: 0 0 1px rgba(57, 58, 58, 0.2);
+            text-shadow: 0 0 1px rgba(58, 58, 58, 0.2);
             font-weight: lighter;
         }
 
@@ -75,7 +75,7 @@
             list-style: none;
             display: inline-block;
             padding: 18px 25px 14px 20px;
-            color: #787b83;
+            color: #7b7b7b;
             font-size: 14px;
         }
 
@@ -193,12 +193,12 @@
             text-align: center;
             vertical-align: top;
             padding: 0 80px;
-            color: #767777;
+            color: #777;
             font-size: 14px;
-            border-right: 1.5px #999695 solid;
+            border-right: 1.5px #999 solid;
             /* OCD Detailing */
             -webkit-font-smoothing: subpixel-antialiased;
-            text-shadow: 0 0 1px rgba(118, 119, 119, 0.3);
+            text-shadow: 0 0 1px rgba(119, 119, 119, 0.3);
         }
 
         #section-2 td:last-of-type{
@@ -207,14 +207,14 @@
 
         #section-3{
             height: 360px;
-            background: #ededec;
+            background: #eee;
             display: flex;
             align-items: center;
         }
 
         #section-3 h2{
             font-size: 54px;
-            color: rgba(50, 51, 51, 0.5);
+            color: rgba(51, 51, 51, 0.5);
             margin: auto;
             font-weight: lighter;
         }
@@ -267,7 +267,7 @@
         #section-4 form .select{
             display: inline-block;
             margin: 0 14px;
-            color: rgba(50, 51, 51, 0.8);
+            color: rgba(51, 51, 51, 0.8);
         }
 
         #section-4 form [type=submit] {
@@ -303,7 +303,7 @@
         .select .appearance::before{
             content: '';
             position: absolute;
-            color: #a8aaaa;
+            color: #aaa;
             top: 11px;
             left: 12px;
         }
@@ -426,12 +426,12 @@
             border-top: none;
             color: inherit;
             padding-bottom: 15px;
-            background: #e3e3e4;
+            background: #e3e3e3;
         }
 
         /* 选中项背景色 */
         #section-4 .select .appearance-switch:focus ~ .drop-down [type=radio]:checked + label{
-            background-color: #a4a4a5;
+            background-color: #aaa;
         }
 
         /* 单个选项外观 */
@@ -445,11 +445,11 @@
         }
 
         #section-4 .select .appearance-switch:focus ~ .drop-down label{
-            text-shadow: 0 0 1px rgba(50, 51, 51, 0.2);
+            text-shadow: 0 0 1px rgba(51, 51, 51, 0.2);
         }
 
         #section-4 .select .appearance-switch:not(:focus) ~ .drop-down [type=radio]:checked + label{
-            color: rgba(50, 51, 51, 0.9);
+            color: rgba(51, 51, 51, 0.9);
         }
 
         #section-4 #region .appearance::before{
@@ -469,7 +469,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: #aa3433;
+            background-color: #aa3333;
             opacity: 0.20;
             top: 0;
             display: block;
@@ -485,7 +485,7 @@
             justify-content: center;
             align-items: center;
             font-size: 12px;
-            color: #786f6c;
+            color: #776f6f;
             line-height: 1;
         }
 
@@ -503,7 +503,7 @@
         #section-5 figcaption h3{
             font-size: 15px;
             font-weight: lighter;
-            color: #323333;
+            color: #333;
             margin: 12px;
             white-space: nowrap;
             text-shadow: 0 0 1px rgba(50, 51, 51, 0.3);
@@ -512,7 +512,7 @@
         #section-5 .image{
             background: #fff center no-repeat;
             height: 340px;
-            border: 1px #cdc9c8 solid;
+            border: 1px #ccc solid;
             transition: transform 0.5s;
         }
 
@@ -609,6 +609,8 @@
         #section-6 {
             height: 565px;
             white-space: nowrap;
+            overflow: hidden;
+            font-size: 0;
         }
 
         #section-6 [type=radio]{
@@ -620,17 +622,45 @@
             white-space: normal;
             height: 100%;
             vertical-align: top;
+            position: relative;
         }
 
         #section-6 .left{
-            width: 67%;
-            background: #ededec url('images/s6_bg.png') center no-repeat;
+            width: 66%;
             color: #fff;
+            transition: transform 0.8s;
         }
 
-        #section-6 .right{
-            width: 33%;
-            white-space: nowrap;
+        #section-6 .scroll{
+            overflow: hidden;
+            height: 100%;
+            position: relative;
+        }
+
+        /* a filter-able background */
+        #section-6 .scroll::before{
+            content: '';
+            background: #eee url('images/s6_bg.png') center no-repeat;
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* triangle */
+        #section-6 .scroll::after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border: 16px transparent solid;
+            border-right: 24px #fff solid;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate3d(0, -50%, 0);
         }
 
         #section-6 .left abbr{
@@ -641,7 +671,7 @@
             line-height: 1;
         }
 
-        #section-6 .left abbr:before{
+        #section-6 .left abbr::before{
             content: attr(title);
             display: block;
             font-size: 49px;
@@ -655,10 +685,122 @@
             text-align: center;
         }
 
+        #section-6 .right{
+            width: 34%;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-left: 1px;
+        }
+
         #section-6 .right .slider{
             display: inline-block;
             width: 100%;
             white-space: normal;
+            transform: translate(0, 50%);
+        }
+
+        /* centering inline-block */
+        #section-6 .right::before{
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            transition: margin-left 0.8s;
+        }
+
+        #section-6 .slider h3{
+            text-align: center;
+            color: #333;
+            font: lighter 21px/1 "Adobe Heiti Std", "STHeiti", "SimHei", "Microsoft JhengHei", sans-serif;
+        }
+
+        #section-6 .slider h3 var{
+            font-style: normal;
+            color: #e74f4d;
+        }
+
+        #section-6 .slider h3 var:before{
+            content: '／';
+            color: #333;
+        }
+
+        #section-6 .slider p{
+            font-size: 12px;
+            line-height: 2.5;
+            color: #bbb;
+            margin: auto 70px;
+            letter-spacing: 1px;
+        }
+
+        #section-6 .slider [type=button]{
+            display: block;
+            margin: 40px auto 0;
+            border: 1px #e25c60 solid;
+            background: transparent;
+            color: #e25c60;
+            width: 105px;
+            height: 30px;
+            font-family: inherit;
+            padding-top: 0;
+        }
+
+        #section-6 .slider-button{
+            width: 100%;
+            height: 30px;
+            position: absolute;
+            top: 80%;
+            text-align: center;
+        }
+
+        #section-6 .slider-button label{
+            display: inline-block;
+            color: #999;
+            font-size: 21px;
+            margin: 5px;
+            line-height: 1;
+        }
+
+        #section-6 #slider-nav-1:checked ~ .right .slider-button [for=slider-nav-1]::after{
+            content: '●';
+            font-size: 20px;
+        }
+
+        #section-6 #slider-nav-1:not(:checked) ~ .right .slider-button [for=slider-nav-1]::after{
+            content: '○';
+        }
+
+        #section-6 #slider-nav-2:checked ~ .right .slider-button [for=slider-nav-2]::after{
+            content: '●';
+            font-size: 20px;
+        }
+
+        #section-6 #slider-nav-2:checked ~ .left{
+            transform: translate3d(0, -100%, 0);
+        }
+
+        #section-6 #slider-nav-2:checked ~ .right::before{
+            margin-left: -100%;
+        }
+
+        #section-6 #slider-nav-2:not(:checked) ~ .right .slider-button [for=slider-nav-2]::after{
+            content: '○';
+        }
+
+        #section-6 #slider-nav-3:checked ~ .right .slider-button [for=slider-nav-3]::after{
+            content: '●';
+            font-size: 20px;
+        }
+
+        #section-6 #slider-nav-3:checked ~ .left{
+            transform: translate3d(0, -200%, 0);
+        }
+
+        #section-6 #slider-nav-3:checked ~ .right::before{
+            margin-left: -200%;
+        }
+
+        #section-6 #slider-nav-3:not(:checked) ~ .right .slider-button [for=slider-nav-3]::after{
+            content: '○';
         }
     </style>
 </head>
@@ -784,15 +926,31 @@
         </figure>
     </section>
     <section id="section-6">
-        <input type="radio" name="slider-nav" id="slider-nav-1"/>
-        <input type="radio" name="slider-nav" id="slider-nav-2"/>
-        <input type="radio" name="slider-nav" id="slider-nav-3"/>
+        <input type="radio" name="slider-nav" class="slider-nav" id="slider-nav-1" checked="checked"/>
+        <input type="radio" name="slider-nav" class="slider-nav" id="slider-nav-2"/>
+        <input type="radio" name="slider-nav" class="slider-nav" id="slider-nav-3"/>
         <div class="left">
-            <abbr title="新世界">TIME</abbr>
-            <address>
-                @新世界 - 北京<br/>
-                <time>2016.04.01</time>
-            </address>
+            <div class="scroll" id="scroll-page-1">
+                <abbr title="新世界">TIME</abbr>
+                <address>
+                    @新世界 - 北京<br/>
+                    <time>2016.04.01</time>
+                </address>
+            </div>
+            <div class="scroll" id="scroll-page-2">
+                <abbr title="新世界">TIME</abbr>
+                <address>
+                    @新世界 - 上海<br/>
+                    <time>2016.04.02</time>
+                </address>
+            </div>
+            <div class="scroll" id="scroll-page-3">
+                <abbr title="新世界">TIME</abbr>
+                <address>
+                    @新世界 - 广州<br/>
+                    <time>2016.04.03</time>
+                </address>
+            </div>
         </div>
         <div class="right">
             <div class="slider" id="slider-page-1">
@@ -810,9 +968,11 @@
                 <p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
                 <input type="button" value="更多详情"/>
             </div>
-            <label for="slider-nav-1"></label>
-            <label for="slider-nav-2"></label>
-            <label for="slider-nav-3"></label>
+            <div class="slider-button">
+                <label for="slider-nav-1"></label>
+                <label for="slider-nav-2"></label>
+                <label for="slider-nav-3"></label>
+            </div>
         </div>
     </section>
     <section id="section-7">
