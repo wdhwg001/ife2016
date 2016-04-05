@@ -765,6 +765,10 @@
             font-size: 20px;
         }
 
+        #section-6 #slider-nav-1:checked ~ .left{
+            transform: translate3d(0, -200%, 0);
+        }
+
         #section-6 #slider-nav-1:not(:checked) ~ .right .slider-button [for=slider-nav-1]::after{
             content: '○';
         }
@@ -791,16 +795,135 @@
             font-size: 20px;
         }
 
-        #section-6 #slider-nav-3:checked ~ .left{
-            transform: translate3d(0, -200%, 0);
-        }
-
         #section-6 #slider-nav-3:checked ~ .right::before{
             margin-left: -200%;
         }
 
         #section-6 #slider-nav-3:not(:checked) ~ .right .slider-button [for=slider-nav-3]::after{
             content: '○';
+        }
+
+        #section-7{
+            height: 520px;
+            white-space: nowrap;
+            font-size: 0;
+            overflow: hidden;
+        }
+
+        #section-7 figure{
+            margin: 0;
+            height: 100%;
+            width: 67%;
+            display: inline-block;
+            position: relative;
+            transition: transform 0.5s;
+        }
+
+        #section-7 .left{
+            margin-right: -34%;
+        }
+
+        #section-7 figcaption{
+            display: inline-block;
+            width: 49.3%;
+            height: 100%;
+            font-size: initial;
+            vertical-align: bottom;
+            transition: width 0.5s;
+        }
+
+        #section-7 figcaption h3{
+            margin: 165px auto 20px;
+            text-align: center;
+            font-weight: lighter;
+            line-height: 1.5;
+            font-size: 21px;
+        }
+
+        #section-7 figcaption hr{
+            width: 30px;
+            margin-bottom: 20px;
+        }
+
+        #section-7 figcaption [type=button]{
+            width: 170px;
+            height: 43px;
+            background: transparent;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            margin: auto;
+        }
+
+        #section-7 figure .image{
+            display: inline-block;
+            height: 100%;
+            width: 50.7%;
+            position: relative;
+        }
+
+        #section-7 figure .image::after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border: 16px transparent solid;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate3d(0, -50%, 0);
+        }
+
+        #section-7 .left{
+            background: #e74f4d;
+            color: #fff;
+        }
+
+        #section-7 .left hr{
+            border: 1px #fff solid;
+        }
+
+        #section-7 .left [type=button]{
+            border: 1px #fff solid;
+            color: #fff;
+        }
+
+        #section-7 .left .image{
+            background: url('images/s7_bg.png') no-repeat left bottom;
+        }
+
+        #section-7 .left .image::after{
+            border-left: 24px #e74f4d solid;
+        }
+
+        #section-7 .right{
+            background: #fff;
+        }
+
+        #section-7 .right hr{
+            border: 1px #aaa solid;
+        }
+
+        #section-7 .right [type=button]{
+            border: 1px #e74f4d solid;
+            color: #e74f4d;
+        }
+
+        #section-7 .right .image::after{
+            border-left: 24px #fff solid;
+        }
+
+        #section-7 .right .image{
+            background: url('images/s7_bg.png') no-repeat left bottom;
+        }
+
+        #section-7 .left:hover ~ .right{
+            transform: translate3d(49.3%, 0, 0);
+        }
+
+        #section-7 .left:hover ~ .right figcaption{
+            width: 51%;
         }
     </style>
 </head>
@@ -930,11 +1053,11 @@
         <input type="radio" name="slider-nav" class="slider-nav" id="slider-nav-2"/>
         <input type="radio" name="slider-nav" class="slider-nav" id="slider-nav-3"/>
         <div class="left">
-            <div class="scroll" id="scroll-page-1">
+            <div class="scroll" id="scroll-page-3">
                 <abbr title="新世界">TIME</abbr>
                 <address>
-                    @新世界 - 北京<br/>
-                    <time>2016.04.01</time>
+                    @新世界 - 广州<br/>
+                    <time>2016.04.03</time>
                 </address>
             </div>
             <div class="scroll" id="scroll-page-2">
@@ -944,11 +1067,11 @@
                     <time>2016.04.02</time>
                 </address>
             </div>
-            <div class="scroll" id="scroll-page-3">
+            <div class="scroll" id="scroll-page-1">
                 <abbr title="新世界">TIME</abbr>
                 <address>
-                    @新世界 - 广州<br/>
-                    <time>2016.04.03</time>
+                    @新世界 - 北京<br/>
+                    <time>2016.04.01</time>
                 </address>
             </div>
         </div>
@@ -975,24 +1098,29 @@
             </div>
         </div>
     </section>
-    <section id="section-7">
-        <div class="left">
-            <h3>
-                新时代<br/>
-                关于爱生活的我们
-            </h3>
-            <hr/>
-            <input type="button" value="查看更多"/>
-        </div>
-        <div class="middle">
-            <h3>
-                新时代<br/>
-                关于爱生活的我们
-            </h3>
-            <hr/>
-            <input type="button" value="查看更多"/>
-        </div>
-        <div class="right"></div>
+    <section id="section-7" class="simHei">
+        <figure class="left">
+            <figcaption>
+                <h3>
+                    新时代<br/>
+                    关于爱生活的我们
+                </h3>
+                <hr/>
+                <input type="button" value="查看更多"/>
+            </figcaption>
+            <div class="image"></div>
+        </figure>
+        <figure class="right">
+            <figcaption>
+                <h3>
+                    新时代<br/>
+                    关于爱生活的我们
+                </h3>
+                <hr/>
+                <input type="button" value="查看更多"/>
+            </figcaption>
+            <div class="image"></div>
+        </figure>
     </section>
     <section id="section-8">
         <h3>成为我们的志愿者</h3>
