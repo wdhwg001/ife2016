@@ -1,31 +1,6 @@
-.icon-twitter, .icon-weibo, .icon-qq, .icon-world {
-  display: inline-block;
-  background: url('images/sprite.png') no-repeat;
-  overflow: hidden;
-  text-indent: -9999px;
-  text-align: left;
-  width: 30px;
-  height: 30px;
-}
-
-.icon-qq {
-  background-position: -3px -185px;
-}
-
-.icon-twitter {
-  background-position: -36px -185px;
-}
-
-.icon-weibo {
-  background-position: -3px -218px;
-}
-
-.icon-world {
-  background-position: -36px -218px;
-}
-
 body {
   width: 1280px;
+  min-width: 1280px;
   margin: 0;
   padding: 0;
   font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
@@ -1118,6 +1093,32 @@ nav .login {
 
 #section-10 > a {
   margin: 25px;
+}
+
+.icon-twitter, .icon-weibo, .icon-qq, .icon-world {
+  display: inline-block;
+  background: url('images/sprite.png') no-repeat;
+  overflow: hidden;
+  text-indent: -9999px;
+  text-align: left;
+  width: 30px;
+  height: 30px;
+}
+
+.icon-qq {
+  background-position: -3px -185px;
+}
+
+.icon-twitter {
+  background-position: -36px -185px;
+}
+
+.icon-weibo {
+  background-position: -3px -218px;
+}
+
+.icon-world {
+  background-position: -36px -218px;
 }
 
 footer {
