@@ -24,6 +24,11 @@
             font-family: "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
         }
 
+        h3{
+            font-weight: lighter;
+            font-size: 21px;
+        }
+
         .simHei{
             font-family: "STHeiti", "SimHei", "Microsoft JhengHei", sans-serif;
         }
@@ -43,6 +48,7 @@
             -webkit-font-smoothing: subpixel-antialiased;
             text-shadow: 0 0 1px rgba(58, 58, 58, 0.2);
             font-weight: lighter;
+            cursor: default;
         }
 
         header h1::before {
@@ -77,6 +83,7 @@
             padding: 18px 25px 14px 20px;
             color: #7b7b7b;
             font-size: 14px;
+            cursor: pointer;
         }
 
         nav li:hover {
@@ -109,6 +116,7 @@
             height: 690px;
             color: #fff;
             background: url('images/s1_bg.png') no-repeat top center;
+            background-size: cover;
             overflow: hidden;
             position: relative;
             z-index: 0;
@@ -116,20 +124,20 @@
 
         #section-1 h2{
             font-size: 60px;
-            margin: 230px auto auto 115px;
+            margin: 230px auto auto 9%;
             font-weight: lighter;
             line-height: 1;
         }
 
         #section-1 p{
-            margin: 18px 124px;
+            margin: 18px 10%;
             font-size: 21px;
             line-height: 1.5;
         }
 
         #section-1 [type=button] {
             display: block;
-            margin: 64px 126px;
+            margin: 64px 10%;
             border: none;
             width: 333px;
             height: 64px;
@@ -138,6 +146,10 @@
             font-family: inherit;
             color: #fff;
             letter-spacing: 3px;
+        }
+
+        #section-1 [type=button]:active{
+            background: #b93d3b;
         }
 
         #section-1::before{
@@ -231,6 +243,7 @@
         #section-4{
             height: 340px;
             background: url('images/s4_bg.png') no-repeat center top;
+            background-size: cover;
             overflow: visible;
             text-align: center;
             padding-top: .1px;
@@ -248,8 +261,6 @@
 
         #section-4 h3{
             margin: 52px auto 10px;
-            font-size: 21px;
-            font-weight: lighter;
         }
 
         #section-4 hr{
@@ -282,6 +293,10 @@
             text-align: center;
             font-family: inherit;
             margin: 0 14px;
+        }
+
+        #section-4 form [type=submit]:active{
+            background: #a04a44;
         }
 
         /* Simulate <Select> in a perfect and sexy way. */
@@ -493,7 +508,7 @@
             width: 220px;
             height: 390px;
             display: inline-block;
-            margin: 0 18px;
+            margin: 0 2%;
         }
 
         #section-5 figcaption{
@@ -641,6 +656,7 @@
         #section-6 .scroll::before{
             content: '';
             background: #eee url('images/s6_bg.png') center no-repeat;
+            background-size: cover;
             display: block;
             position: absolute;
             width: 100%;
@@ -711,7 +727,7 @@
         #section-6 .slider h3{
             text-align: center;
             color: #333;
-            font: lighter 21px/1 "Adobe Heiti Std", "STHeiti", "SimHei", "Microsoft JhengHei", sans-serif;
+            font: 21px/1 "Adobe Heiti Std", "STHeiti", "SimHei", "Microsoft JhengHei", sans-serif;
         }
 
         #section-6 .slider h3 var{
@@ -744,6 +760,11 @@
             padding-top: 0;
         }
 
+        #section-6 .slider [type=button]:active{
+            background: #f05c60;
+            color: #fff;
+        }
+
         #section-6 .slider-button{
             width: 100%;
             height: 30px;
@@ -758,24 +779,24 @@
             font-size: 21px;
             margin: 5px;
             line-height: 1;
+            cursor: pointer;
         }
 
-        #section-6 #slider-nav-1:checked ~ .right .slider-button [for=slider-nav-1]::after{
+        #section-6 #slider-nav-1:checked ~ .right .slider-button [for=slider-nav-1]::after,
+        #section-6 #slider-nav-2:checked ~ .right .slider-button [for=slider-nav-2]::after,
+        #section-6 #slider-nav-3:checked ~ .right .slider-button [for=slider-nav-3]::after{
             content: '●';
             font-size: 20px;
+        }
+
+        #section-6 #slider-nav-1:not(:checked) ~ .right .slider-button [for=slider-nav-1]::after,
+        #section-6 #slider-nav-2:not(:checked) ~ .right .slider-button [for=slider-nav-2]::after,
+        #section-6 #slider-nav-3:not(:checked) ~ .right .slider-button [for=slider-nav-3]::after{
+            content: '○';
         }
 
         #section-6 #slider-nav-1:checked ~ .left{
             transform: translate3d(0, -200%, 0);
-        }
-
-        #section-6 #slider-nav-1:not(:checked) ~ .right .slider-button [for=slider-nav-1]::after{
-            content: '○';
-        }
-
-        #section-6 #slider-nav-2:checked ~ .right .slider-button [for=slider-nav-2]::after{
-            content: '●';
-            font-size: 20px;
         }
 
         #section-6 #slider-nav-2:checked ~ .left{
@@ -786,21 +807,8 @@
             margin-left: -100%;
         }
 
-        #section-6 #slider-nav-2:not(:checked) ~ .right .slider-button [for=slider-nav-2]::after{
-            content: '○';
-        }
-
-        #section-6 #slider-nav-3:checked ~ .right .slider-button [for=slider-nav-3]::after{
-            content: '●';
-            font-size: 20px;
-        }
-
         #section-6 #slider-nav-3:checked ~ .right::before{
             margin-left: -200%;
-        }
-
-        #section-6 #slider-nav-3:not(:checked) ~ .right .slider-button [for=slider-nav-3]::after{
-            content: '○';
         }
 
         #section-7{
@@ -835,9 +843,7 @@
         #section-7 figcaption h3{
             margin: 165px auto 20px;
             text-align: center;
-            font-weight: lighter;
             line-height: 1.5;
-            font-size: 21px;
         }
 
         #section-7 figcaption hr{
@@ -889,8 +895,14 @@
             color: #fff;
         }
 
+        #section-7 .left [type=button]:active{
+            background: #fafafa;
+            color: #e74f4d;
+        }
+
         #section-7 .left .image{
-            background: url('images/s7_bg.png') no-repeat left bottom;
+            background: url('images/s7_bg.png') no-repeat left top;
+            background-size: cover;
         }
 
         #section-7 .left .image::after{
@@ -910,12 +922,18 @@
             color: #e74f4d;
         }
 
+        #section-7 .right [type=button]:active{
+            background: #ed5c60;
+            color: #fff;
+        }
+
         #section-7 .right .image::after{
             border-left: 24px #fff solid;
         }
 
         #section-7 .right .image{
-            background: url('images/s7_bg.png') no-repeat left bottom;
+            background: url('images/s7_bg.png') no-repeat left top;
+            background-size: cover;
         }
 
         #section-7 .left:hover ~ .right{
@@ -932,9 +950,7 @@
         }
 
         #section-8 h3{
-            font-size: 21px;
             text-align: center;
-            font-weight: lighter;
             line-height: 1;
             margin: 118px auto 0;
         }
@@ -990,7 +1006,7 @@
         #section-9 .form-eula p{
             font-size: 12px;
             line-height: 1.8;
-            opacity: 0.6;
+            color: rgba(35, 24, 21, 0.7);
             margin: 20px 0 0;
         }
 
@@ -1024,6 +1040,13 @@
         #section-9 .form-input [type=submit]{
             width: 100%;
             height: 100%;
+            font-family: inherit;
+            font-size: 14px;
+            text-shadow: 0 0 1px rgba(35, 24, 21, 0.3);
+        }
+
+        #section-9 .form-input [type=submit]:active{
+            background: #ccc;
         }
 
         #section-9 .form-input [for=reg-introduction]{
@@ -1031,17 +1054,98 @@
         }
 
         #section-9 .form-input td:not(.large){
-            height: 40px;
+            height: 35px;
         }
 
         #section-9 .form-input td{
             background: #eee;
             margin: 13px;
             border: 6px white solid;
+            font-size: 12px;
+            color: rgba(35, 24, 21, 0.7);
+        }
+
+        #section-9 .form-input td:not(.submit){
+            padding-left: 16px;
         }
 
         #section-9 .form-input .large textarea{
             height: 90px;
+        }
+
+        #section-9 .form-input .large td{
+            padding: 10px 12px;
+        }
+
+        #section-10{
+            height: 360px;
+            background: #32353e;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            font-size: 0;
+        }
+
+        #section-10 h3{
+            margin: 90px auto 10px;
+        }
+
+        #section-10 p{
+            font-size: 12px;
+            line-height: 1.5;
+            margin: 0 auto 30px;
+        }
+
+        #section-10 [type=text]{
+            width: 410px;
+            height: 40px;
+            border: none;
+            padding: 0 10px;
+            vertical-align: bottom;
+        }
+
+        #section-10 [type=submit]{
+            width: 80px;
+            height: 40px;
+            border: none;
+            background: #686166;
+            font-family: inherit;
+            color: #fff;
+            font-size: 15px;
+            letter-spacing: 10px;
+            text-indent: 10px;
+        }
+
+        #section-10 [type=submit]:active{
+            background: #554d53;
+        }
+
+        #section-10 > a{
+            margin: 25px;
+        }
+
+        footer{
+            background: #2f3038;
+            height: 60px;
+            color: #fff;
+        }
+
+        footer address{
+            display: block;
+            float: left;
+            margin: 30px 100px 0;
+            line-height: 1;
+            font-size: 12px;
+            font-style: normal;
+        }
+
+        footer > a{
+            display: block;
+            float: right;
+            color: #fff;
+            font: 12px monospace;
+            margin: 30px 40px 0;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -1301,7 +1405,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" class="submit">
                             <input type="submit" value="提交申请"/>
                         </td>
                     </tr>
@@ -1310,8 +1414,8 @@
         </form>
     </section>
     <section id="section-10">
-        <h3>联系我们</h3>
-        <p>
+        <h3 class="simHei">联系我们</h3>
+        <p class="simHei">
             为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯<br/>
             也可以通过以下任何方式关注我们动态
         </p>
