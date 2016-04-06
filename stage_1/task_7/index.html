@@ -111,7 +111,7 @@
             background: url('images/s1_bg.png') no-repeat top center;
             overflow: hidden;
             position: relative;
-            z-index: -2;
+            z-index: 0;
         }
 
         #section-1 h2{
@@ -140,7 +140,7 @@
             letter-spacing: 3px;
         }
 
-        #section-1:after{
+        #section-1::before{
             content: '';
             position: absolute;
             width: 100%;
@@ -195,7 +195,7 @@
             padding: 0 80px;
             color: #777;
             font-size: 14px;
-            border-right: 1.5px #999 solid;
+            border-right: 1px #999 solid;
             /* OCD Detailing */
             -webkit-font-smoothing: subpixel-antialiased;
             text-shadow: 0 0 1px rgba(119, 119, 119, 0.3);
@@ -928,6 +928,7 @@
 
         #section-8{
             height: 270px;
+            overflow: hidden;
         }
 
         #section-8 h3{
@@ -951,6 +952,96 @@
             color: #aaa;
             line-height: 1.5;
             margin: 0 auto;
+        }
+
+        #section-9{
+            height: 480px;
+        }
+
+        #section-9 form{
+            margin: 30px 140px;
+            display: flex;
+        }
+
+        #section-9 .form-eula{
+            width: 28%;
+            margin-right: 8%;
+            color: #231815;
+            font-size: 0;
+        }
+
+        #section-9 .form-input{
+            width: 64%;
+        }
+
+        #section-9 [type=checkbox]{
+            display: none;
+        }
+
+        #section-9 .form-eula h4{
+            font-size: 14px;
+            font-weight: lighter;
+        }
+
+        #section-9 .form-eula .detail{
+            display: none;
+        }
+
+        #section-9 .form-eula p{
+            font-size: 12px;
+            line-height: 1.8;
+            opacity: 0.6;
+            margin: 20px 0 0;
+        }
+
+        #section-9 .form-eula label{
+            text-align: right;
+            width: 100%;
+            display: inline-block;
+            font: 12px monospace;
+        }
+
+        #section-9 .form-eula label::before{
+            content: '⌵';
+            color: #bbb;
+            display: inline-block;
+            margin: 0 8px;
+            font-weight: bold;
+        }
+
+        #section-9 .form-input table,
+        #section-9 .form-input label,
+        #section-9 .form-input textarea{
+            width: 100%;
+        }
+
+        #section-9 .form-input input,
+        #section-9 .form-input textarea{
+            border: none;
+            background: transparent;
+        }
+
+        #section-9 .form-input [type=submit]{
+            width: 100%;
+            height: 100%;
+        }
+
+        #section-9 .form-input [for=reg-introduction]{
+            display: block;
+        }
+
+        #section-9 .form-input td:not(.large){
+            height: 40px;
+        }
+
+        #section-9 .form-input td{
+            background: #eee;
+            margin: 13px;
+            border: 6px white solid;
+        }
+
+        #section-9 .form-input .large textarea{
+            height: 90px;
         }
     </style>
 </head>
@@ -1159,24 +1250,62 @@
     </section>
     <section id="section-9">
         <form action="" method="post">
-            <div id="form-eula">
+            <div class="form-eula simHei">
+                <input type="checkbox" name="more" id="more-1"/>
+                <input type="checkbox" name="more" id="more-2"/>
+                <input type="checkbox" name="more" id="more-3"/>
                 <div class="eula">
                     <h4>新世界志愿者协议</h4>
-                    <p>加入新世界志愿者的人员必须遵守中华人民共<!--Typo: "共"->""-->和国的相关法律法规，并且本着平等自愿的原则 ……</p>
-                    <label for="more-1"></label>
-                    <input type="checkbox" name="more" id="more-1"/>
+                    <p class="brief">加入新世界志愿者的人员必须遵守中华人民共<!--Typo: "共"->""-->和国的相关法律法规，并且本着平等自愿的原则 ......</p>
+                    <p class="detail">加入新世界志愿者的人员必须遵守中华人民共<!--Typo: "共"->""-->和国的相关法律法规，并且本着平等自愿的原则 ......</p>
+                    <label for="more-1">more</label>
                 </div>
                 <div class="eula">
                     <h4>新世界志愿者权利</h4>
-                    <p>新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在市<!--Typo: "四"->"市"-->新世界活动的优先参与资格</p>
-                    <label for="more-2"></label>
-                    <input type="checkbox" name="more" id="more-2"/>
+                    <p class="brief">新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在市<!--Typo: "四"->"市"-->新世界活动的优先参与资格 ......</p>
+                    <p class="detail">新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在市<!--Typo: "四"->"市"-->新世界活动的优先参与资格 ......</p>
+                    <label for="more-2">more</label>
                 </div>
                 <div class="eula">
                     <h4>更多条款</h4>
-                    <label for="more-3"></label>
-                    <input type="checkbox" name="more" id="more-3"/>
+                    <p class="detail"></p>
+                    <label for="more-3">more</label>
                 </div>
+            </div>
+            <div class="form-input">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="reg-name">姓名</label>
+                            <input type="text" name="name" id="reg-name"/>
+                        </td>
+                        <td>
+                            <label for="reg-gender">年龄</label>
+                            <input type="text" name="gender" id="reg-gender"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="reg-contact">联系方式</label>
+                            <input type="text" name="contact" id="reg-contact"/>
+                        </td>
+                        <td>
+                            <label for="reg-address">联系地址</label>
+                            <input type="text" name="address" id="reg-address"/>
+                        </td>
+                    </tr>
+                    <tr class="large">
+                        <td colspan="2">
+                            <label for="reg-introduction">请简单描述您梦想的生活</label>
+                            <textarea name="introduction" id="reg-introduction" cols="30" rows="10"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="提交申请"/>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </form>
     </section>
